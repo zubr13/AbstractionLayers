@@ -1,3 +1,16 @@
 /**
- * Created by Àíäğåé on 25.05.2016.
+ * Created by ĞĞ½Ğ´Ñ€ĞµĞ¹ on 25.05.2016.
  */
+
+var parseCookies = function(req){
+    // Parse cookies
+    var cookie = req.headers.cookie,
+        cookies = {};
+    if (cookie) cookie.split(';').forEach(function(item) {
+        var parts = item.split('=');
+        cookies[(parts[0]).trim()] = (parts[1] || '').trim();
+    });
+    return cookies;
+}
+
+module.exports.parseCookies = parseCookies;

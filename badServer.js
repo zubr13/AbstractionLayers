@@ -16,10 +16,6 @@ http.createServer(function (req, res) {
     cookies[(parts[0]).trim()] = (parts[1] || '').trim();
   });
 
-  // Logging
-  var date = new Date().toISOString();
-  console.log([date, req.method, req.url].join('  '));
-
   // Serve from cache
   if (cache[req.url] && req.method === 'GET') {
     res.writeHead(200);
